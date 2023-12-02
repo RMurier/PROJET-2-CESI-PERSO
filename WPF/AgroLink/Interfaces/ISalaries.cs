@@ -35,5 +35,13 @@ namespace AgroLink.Interfaces
         /// <param name="id">Id du service à supprimer</param>
         /// <returns></returns>
         public Task<bool> DeleteSalarie(int id);
+        /// <summary>
+        /// Récupère les salariés en fonction des filtres
+        /// </summary>
+        /// <param name="name">Nom / prénom du salarié</param>
+        /// <param name="refService">Référence du service</param>
+        /// <param name="refSite">Référence du site</param>
+        /// <returns></returns>
+        public Task<List<TSalarie>> GetSalariesByFilters(string? name, int? refService, int? refSite);
     }
 }

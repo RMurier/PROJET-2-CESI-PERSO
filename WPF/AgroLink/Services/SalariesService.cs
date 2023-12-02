@@ -117,5 +117,30 @@ namespace WpfNegosud.Services
                 }
             }
         }
+        /// <summary>
+        /// Récupère les salariés en fonction des filtres
+        /// </summary>
+        /// <param name="name">Nom / prénom du salarié</param>
+        /// <param name="refService">Référence du service</param>
+        /// <param name="refSite">Référence du site</param>
+        /// <returns></returns>
+        public async Task<List<TSalarie>> GetSalariesByFilters(string? name, int? refService, int? refSite)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = client.PostAsJsonAsync(new Uri($"{_config["ApiEndpoint"]}/Salaries/GetSalarieByFilters"), new { name = name, refService = refService, refSite = refSite}).Result;
+                    response.EnsureSuccessStatusCode();
+                    string data = response.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<List<TSalarie>>(data);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la requête API : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return new List<TSalarie>();
+                }
+            }
+        }
     }
 }

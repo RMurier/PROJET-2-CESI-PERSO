@@ -8,6 +8,7 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using WpfNegosud.Services;
 
@@ -34,13 +35,34 @@ namespace AgroLink
             _salaries = new SalariesService();
 
             ListeSites = new List<TSite>();
+            ListeServices = new List<TService>();
             DataContext = this;
-            ListeSites = _sites.GetSites().Result;
+
+            //Ajoute les sites dans les variables
+            ListeSites.Add(new TSite()
+            {
+                Id = 0,
+                Nom = "Séléctionnez un site",
+                RefType = 1
+            });
+            ListeSites.AddRange(_sites.GetSites().Result);
+
+            //Ajoute les services dans les variables
+            ListeServices.Add(new TService()
+            {
+                Id = 0,
+                Nom = "Séléctionnez un service"
+            });
+            ListeServices.AddRange(_services.GetServices().Result);
+
+
+            //Met les données dans les boxes
             SitesComboBox.ItemsSource = ListeSites;
-            ListeServices = _services.GetServices().Result;
             ServicesComboBox.ItemsSource = ListeServices;
 
-
+            //Met les valeurs par défaut sur les combobox
+            SitesComboBox.SelectedValue = 0;
+            ServicesComboBox.SelectedValue = 0;
         }
 
         private async Task<List<TService>> GetServices()
@@ -78,7 +100,69 @@ namespace AgroLink
                 ChargerPage(new Uri("Admin.xaml", UriKind.Relative));
             }
         }
+        /// <summary>
+        /// Retourne à l'accueil
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void RedirectHome()
+        {
+            MainFrame.Content = null;
+            //Initialise les services
+            _sites = new SitesService();
+            _services = new ServicesService();
+            _salaries = new SalariesService();
 
+            //Ajoute les sites dans les variables
+            ListeSites.Add(new TSite()
+            {
+                Id = 0,
+                Nom = "Séléctionnez un site",
+                RefType = 1
+            });
+            ListeSites.AddRange(_sites.GetSites().Result);
+
+            //Ajoute les services dans les variables
+            ListeServices.Add(new TService()
+            {
+                Id = 0,
+                Nom = "Séléctionnez un service"
+            });
+            ListeServices.AddRange(_services.GetServices().Result);            
+
+            //Met les données dans les boxes
+            SitesComboBox.ItemsSource = ListeSites;
+            ServicesComboBox.ItemsSource = ListeServices;
+
+            //Met les valeurs par défaut sur les combobox
+            SitesComboBox.SelectedValue = 0;
+            ServicesComboBox.SelectedValue = 0;
+        }
+        /// <summary>
+        /// Recherche une personne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Search_Click(object sender, RoutedEventArgs e)
+        {
+            string? name = filterName.Text;
+            int? refService = Convert.ToInt32(ServicesComboBox.SelectedValue);
+            if(refService == 0)
+            {
+                refService = null;
+            }
+            int? refSite = Convert.ToInt32(SitesComboBox.SelectedValue);
+            if(refSite == 0)
+            {
+                refSite = null;
+            }
+
+            List<TSalarie>? salaries = _salaries.GetSalariesByFilters(name, refService, refSite).Result;
+        }
+        /// <summary>
+        /// Charge une page dans la MainFrame
+        /// </summary>
+        /// <param name="uri">URI de la page à charger</param>
         private void ChargerPage(Uri uri)
         {
             MainFrame.Navigate(uri);

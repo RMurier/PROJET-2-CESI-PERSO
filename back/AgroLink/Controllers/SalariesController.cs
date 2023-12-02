@@ -62,5 +62,42 @@ namespace AgroLink.Controllers
             _dbContext.TSalaries.Remove(salarie);
             _dbContext.SaveChanges();
         }
+        /// <summary>
+        /// Récupère les salariés en fonction du filtre
+        /// </summary>
+        /// <param name="name">Nom / prénom du salarié</param>
+        /// <param name="refService">Référence du service</param>
+        /// <param name="refSite">Référence du site</param>
+        /// <returns></returns>
+        [HttpPost("GetSalarieByFilters")]
+        public List<TSalarie> GetSalarieByFilters([FromBody] GetSalarieByFilter model)
+        {
+            if(model.Name == null && model.RefService == null && model.RefSite == null)
+            {
+                return null;
+            }
+            IQueryable<TSalarie> query = _dbContext.TSalaries.AsQueryable();
+
+            //Filtrer par nom
+            if (!string.IsNullOrEmpty(model.Name))
+            {
+                query = query.Where(p => p.Nom.ToLower().Contains(model.Name.ToLower()) || p.Prenom.ToLower().Contains(model.Name.ToLower()));
+            }
+            // Filtre par service
+            if (model.RefService != null)
+            {
+                query = query.Where(p => p.RefService == model.RefService);
+            }
+
+            // Filtre par site
+            if (model.RefSite != null)
+            {
+                query = query.Where(p => p.RefSite == model.RefSite);
+            }
+
+            // Exécutez la requête et renvoyez les résultats
+            return query.ToList();
+
+        }
     }
 }

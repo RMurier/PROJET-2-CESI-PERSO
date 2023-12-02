@@ -22,6 +22,12 @@
     <Compile Update="AdminSites.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserInformations.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserSearchList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Accueil.xaml">
@@ -37,6 +43,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminSites.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserInformations.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserSearchList.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

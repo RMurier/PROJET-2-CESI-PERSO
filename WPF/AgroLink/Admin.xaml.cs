@@ -25,21 +25,49 @@ namespace AgroLink
             InitializeComponent();
             DataContext = this;
         }
-
+        /// <summary>
+        /// Quand le bouton "Services" est cliqué, redirige vers la page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void Services_Click(object sender, RoutedEventArgs e)
         {
-            ChargerPage(new Uri("AdminServices.xaml", UriKind.Relative));
+            ChargerPageAdmin(new Uri("AdminServices.xaml", UriKind.Relative));
         }
+        /// <summary>
+        /// Quand le bouton "Sites" est cliqué, redirige vers la page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void Sites_Click(object sender, RoutedEventArgs e)
         {
-            ChargerPage(new Uri("AdminSites.xaml", UriKind.Relative));
+            ChargerPageAdmin(new Uri("AdminSites.xaml", UriKind.Relative));
         }
+        /// <summary>
+        /// Quand le bouton "Salariés" est cliqué, redirige vers la page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void Salaries_Click(object sender, RoutedEventArgs e)
         {
-            ChargerPage(new Uri("AdminSalaries.xaml", UriKind.Relative));
+            ChargerPageAdmin(new Uri("AdminSalaries.xaml", UriKind.Relative));
         }
+        /// <summary>
+        /// Quand le bouton "Retourn" est cliqué, redirige vers l'accueil
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
-        private void ChargerPage(Uri uri)
+        public async void Retour_Click(object sender, RoutedEventArgs e)
+        {
+            Accueil accueil = new Accueil();
+            accueil.RedirectHome();
+        }
+        /// <summary>
+        /// Charge la vue partielle dans la frame Admin
+        /// </summary>
+        /// <param name="uri"></param>
+        private void ChargerPageAdmin(Uri uri)
         {
             AdminFrame.Navigate(uri);
         }
