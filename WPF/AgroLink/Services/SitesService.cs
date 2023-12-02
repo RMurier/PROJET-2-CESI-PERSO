@@ -94,5 +94,27 @@ namespace WpfNegosud.Services
                 }
             }
         }
+        /// <summary>
+        /// Supprime un site
+        /// </summary>
+        /// <param name="id">Id du site à supprimer</param>
+        /// <returns></returns>
+        public async Task<bool> DeleteSite(int id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = client.PostAsJsonAsync(new Uri($"{_config["ApiEndpoint"]}/Sites/DeleteSite"), id).Result;
+                    response.EnsureSuccessStatusCode();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la requête API : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+            }
+        }
     }
 }

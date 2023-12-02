@@ -45,5 +45,16 @@ namespace AgroLink.Controllers
                 _dbContext.SaveChanges();
             }
         }
+        /// <summary>
+        /// Supprime un service
+        /// </summary>
+        /// <param name="id">Id du service à supprimer</param>
+        [HttpPost("DeleteService")]
+        public void DeleteService([FromBody] int id)
+        {
+            TService service = _dbContext.TServices.Find(id);
+            _dbContext.TServices.Remove(service);
+            _dbContext.SaveChanges();
+        }
     }
 }

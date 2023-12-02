@@ -95,5 +95,27 @@ namespace WpfNegosud.Services
                 }
             }
         }
+        /// <summary>
+        /// Supprime un salarié
+        /// </summary>
+        /// <param name="id">Id du service à supprimer</param>
+        /// <returns></returns>
+        public async Task<bool> DeleteSalarie(int id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = client.PostAsJsonAsync(new Uri($"{_config["ApiEndpoint"]}/Salaries/DeleteSalarie"), id).Result;
+                    response.EnsureSuccessStatusCode();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la requête API : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+            }
+        }
     }
 }

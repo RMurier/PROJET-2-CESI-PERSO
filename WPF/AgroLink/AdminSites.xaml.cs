@@ -63,5 +63,18 @@ namespace AgroLink
                 }
             }
         }
+        /// <summary>
+        /// Supprime un service
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void DeleteSite(object sender, RoutedEventArgs e)
+        {
+            int Id = (int)((Button)sender).Tag;
+            await _sites.DeleteSite(Id);
+            Task<List<TSite>> listSites = _sites.GetSites();
+            SitesGrid.ItemsSource = await listSites;
+            SitesGrid.Items.Refresh();
+        }
     }
 }

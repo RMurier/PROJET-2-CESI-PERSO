@@ -44,5 +44,16 @@ namespace AgroLink.Controllers
                 _dbContext.SaveChanges();
             }
         }
+        /// <summary>
+        /// Supprime un site
+        /// </summary>
+        /// <param name="id">Id du site à supprimer</param>
+        [HttpPost("DeleteSite")]
+        public void DeleteSite([FromBody] int id)
+        {
+            TSite site = _dbContext.TSites.Find(id);
+            _dbContext.TSites.Remove(site);
+            _dbContext.SaveChanges();
+        }
     }
 }

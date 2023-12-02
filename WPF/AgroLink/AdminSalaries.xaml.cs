@@ -1,4 +1,5 @@
-﻿using AgroLink.Models;
+﻿using AgroLink.Interfaces;
+using AgroLink.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -72,6 +73,19 @@ namespace AgroLink
                     SalariesGrid.Items.Refresh();
                 }
             }
+        }
+        /// <summary>
+        /// Supprime un salarié
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void DeleteSalarie(object sender, RoutedEventArgs e)
+        {
+            int Id = (int)((Button)sender).Tag;
+            await _salaries.DeleteSalarie(Id);
+            Task<List<TSalarie>> listSalaries = _salaries.GetSalaries();
+            SalariesGrid.ItemsSource = await listSalaries;
+            SalariesGrid.Items.Refresh();
         }
     }
 }

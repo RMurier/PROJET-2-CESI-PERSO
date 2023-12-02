@@ -51,5 +51,16 @@ namespace AgroLink.Controllers
                 _dbContext.SaveChanges();
             }
         }
+        /// <summary>
+        /// Supprime un salarié
+        /// </summary>
+        /// <param name="id">Id du salarié à supprimer</param>
+        [HttpPost("DeleteSalarie")]
+        public void DeleteService([FromBody] int id)
+        {
+            TSalarie salarie = _dbContext.TSalaries.Find(id);
+            _dbContext.TSalaries.Remove(salarie);
+            _dbContext.SaveChanges();
+        }
     }
 }

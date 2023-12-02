@@ -17,6 +17,21 @@
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Header="Id" Binding="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTextColumn Header="Nom"  Binding="{Binding Path= Nom, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnDelete" 
+                                Grid.Column="1"
+                                Grid.Row="3"
+                                Content="Supprimer"
+                                Click="DeleteService"
+                                Grid.ColumnSpan="2" Margin="5,5,5,5" 
+                                Tag="{Binding Id}"
+                                                
+                                />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
