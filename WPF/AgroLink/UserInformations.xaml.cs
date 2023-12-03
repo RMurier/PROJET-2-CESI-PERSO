@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgroLink.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace AgroLink
     /// </summary>
     public partial class UserInformations : Page
     {
-        public UserInformations()
+        public TSalarie Salarie { get; set; }
+        public UserInformations(TSalarie salarie)
         {
             InitializeComponent();
+            Salarie = salarie;
+            InitializeUserData();
+        }
+
+        private void InitializeUserData()
+        {
+            // Remplacez les valeurs ci-dessous par les données de l'utilisateur réelles
+            NomTextBlock.Text = Salarie.Nom;
+            PrenomTextBlock.Text = Salarie.Prenom;
+            TelephoneFixeTextBlock.Text = Salarie.TelephoneFixe;
+            TelephoneMobileTextBlock.Text = Salarie.TelephoneMobile;
+            EmailTextBlock.Text = Salarie.Email;
+            ServiceTextBlock.Text = Salarie.RefService.ToString();
+            SiteTextBlock.Text = Salarie.RefSite.ToString();
         }
     }
 }
