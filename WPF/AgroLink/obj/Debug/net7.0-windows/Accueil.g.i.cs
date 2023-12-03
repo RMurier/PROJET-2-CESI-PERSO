@@ -92,7 +92,7 @@ namespace AgroLink {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AgroLink;component/accueil.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AgroLink;V1.0.0.0;component/accueil.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Accueil.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

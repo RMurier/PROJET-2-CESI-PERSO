@@ -41,3 +41,5 @@ C:\Users\murie\source\repos\PROJET-2 CESI\Perso\WPF\AgroLink\obj\Debug\net7.0-wi
 C:\Users\murie\source\repos\PROJET-2 CESI\Perso\WPF\AgroLink\obj\Debug\net7.0-windows\UserSearchList.g.cs
 C:\Users\murie\source\repos\PROJET-2 CESI\Perso\WPF\AgroLink\obj\Debug\net7.0-windows\UserInformations.baml
 C:\Users\murie\source\repos\PROJET-2 CESI\Perso\WPF\AgroLink\obj\Debug\net7.0-windows\UserSearchList.baml
+C:\Users\murie\source\repos\PROJET-2 CESI\Perso\WPF\AgroLink\obj\Debug\net7.0-windows\404.g.cs
+C:\Users\murie\source\repos\PROJET-2 CESI\Perso\WPF\AgroLink\obj\Debug\net7.0-windows\404.baml

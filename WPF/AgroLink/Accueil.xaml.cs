@@ -65,25 +65,6 @@ namespace AgroLink
             ServicesComboBox.SelectedValue = 0;
         }
 
-        private async Task<List<TService>> GetServices()
-        {
-            // Effectuez votre requête HTTP ici pour obtenir les données de l'API
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    HttpResponseMessage response = client.GetAsync("https://localhost:7150/Services/GetAllServices").Result;
-                    response.EnsureSuccessStatusCode();
-                    string data = response.Content.ReadAsStringAsync().Result;
-                    return JsonConvert.DeserializeObject<List<TService>>(data);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Erreur lors de la requête API : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return new List<TService>();
-                }
-            }
-        }
         /// <summary>
         /// Vérifie si une combinaison de touches est respéctée
         /// </summary>
@@ -158,6 +139,18 @@ namespace AgroLink
             }
 
             List<TSalarie>? salaries = _salaries.GetSalariesByFilters(name, refService, refSite).Result;
+            switch(salaries.Count)
+            {
+                case 0:
+                    ChargerPage(new Uri("404.xaml", UriKind.Relative));
+                    break;
+                case 1:
+                    break;
+                case > 1:
+                    break;
+                default:
+                    break;
+            }
         }
         /// <summary>
         /// Charge une page dans la MainFrame
