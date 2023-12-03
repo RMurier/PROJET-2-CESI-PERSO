@@ -149,6 +149,7 @@ namespace AgroLink
                     MainFrame.Navigate(new UserInformations(salaries.First()));
                     break;
                 case > 1:
+                    MainFrame.Navigate(new UserSearchList(salaries));
                     break;
                 default:
                     break;

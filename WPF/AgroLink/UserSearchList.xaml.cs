@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgroLink.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace AgroLink
     /// </summary>
     public partial class UserSearchList : Page
     {
-        public UserSearchList()
+        private List<TSalarie> listeSalarie;
+
+        public UserSearchList(List<TSalarie> salarieList)
         {
             InitializeComponent();
+            listeSalarie = salarieList;
+
+            salarieDataGrid.ItemsSource = listeSalarie;
+        }
+
+        private void OnSelectButtonClick(object sender, RoutedEventArgs e)
+        {
+            // Récupérez le salarié associé au bouton sélectionné
+            Button button = (Button)sender;
+            TSalarie selectedSalarie = (TSalarie)button.Tag;
+
+            // Faites quelque chose avec le salarié sélectionné, par exemple, affichez un message
+            NavigationService.Navigate(new UserInformations(selectedSalarie));
         }
     }
 }

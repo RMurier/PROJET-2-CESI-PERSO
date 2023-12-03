@@ -12,6 +12,8 @@
             <TextBlock Text="Erreur 404 - Utilisateur non trouvé" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
             <Image Source="path_to_your_image.jpg" Width="100" Height="100" Margin="0,0,0,20"/>
             <TextBlock Text="Désolé, l'utilisateur que vous recherchez n'a pas été trouvé." TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <Button Content="Retour à la page d'accueil" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"
+                    Click="BackToHomePage_Click"/>
         </StackPanel>
     </Grid>
 </Page>

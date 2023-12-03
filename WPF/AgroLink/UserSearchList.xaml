@@ -9,6 +9,23 @@
       Title="UserSearchList">
 
     <Grid>
-        <TextBlock>Liste des utilisateurs</TextBlock>
+        <DataGrid x:Name="salarieDataGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" />
+                <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" />
+                <DataGridTextColumn Header="Téléphone Fixe" Binding="{Binding TelephoneFixe}" />
+                <DataGridTextColumn Header="Téléphone Mobile" Binding="{Binding TelephoneMobile}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
+                <!-- Ajoutez d'autres colonnes en fonction de vos propriétés -->
+                <DataGridTemplateColumn Header="Action">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Sélectionner" Click="OnSelectButtonClick" Tag="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
