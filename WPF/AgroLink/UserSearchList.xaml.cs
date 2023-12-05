@@ -30,7 +30,11 @@ namespace AgroLink
 
             salarieDataGrid.ItemsSource = listeSalarie;
         }
-
+        /// <summary>
+        /// Quand appuie sur le bouton pour séléctionner le salarié
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnSelectButtonClick(object sender, RoutedEventArgs e)
         {
             // Récupérez le salarié associé au bouton sélectionné
