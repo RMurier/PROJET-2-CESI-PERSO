@@ -19,4 +19,5 @@ public partial class TSalarieWithAllInfos
     public string Site { get; set; }
 
     public int? RefRole { get; set; }
+    public string Role { get; set; }
 }

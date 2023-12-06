@@ -8,19 +8,19 @@ Ce document présente le cahier de test pour l'évaluation de l'application d'an
 ### 1.1 Visiteur
 1. **Affichage des Informations**
    - [x] L'utilisateur visiteur peut afficher les informations d'un salarié.
-   - [ ] Les informations affichées comprennent le nom, prénom, téléphone fixe, téléphone portable, email, service et site.
+   - [x] Les informations affichées comprennent le nom, prénom, téléphone fixe, téléphone portable, email, service et site.
 
 2. **Recherche par Nom**
-   - [ ] La recherche par nom fonctionne correctement en saisissant X lettres.
-   - [ ] Les résultats correspondent aux salariés dont le nom contient les lettres saisies.
+   - [x] La recherche par nom fonctionne correctement en saisissant 1 lettres.
+   - [x] Les résultats correspondent aux salariés dont le nom contient les lettres saisies.
 
 3. **Recherche par Site**
-   - [ ] La liste des sites est correctement affichée.
-   - [ ] La recherche par site renvoie les salariés associés à ce site.
+   - [x] La liste des sites est correctement affichée.
+   - [x] La recherche par site renvoie les salariés associés à ce site.
 
 4. **Recherche par Service**
-   - [ ] La liste des services est correctement affichée.
-   - [ ] La recherche par service renvoie les salariés associés à ce service.
+   - [x] La liste des services est correctement affichée.
+   - [x] La recherche par service renvoie les salariés associés à ce service.
 
 ### 1.2 Administration
 1. **Ajout, Modification, Suppression d'Informations**
