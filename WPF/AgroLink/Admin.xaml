@@ -44,8 +44,6 @@
             <Button Content="Services" Click="Services_Click" Style="{StaticResource MenuButtonStyle}" />
             <Button Content="Sites" Click="Sites_Click" Style="{StaticResource MenuButtonStyle}" />
             <Button Content="Salariés" Click="Salaries_Click" Style="{StaticResource MenuButtonStyle}" />
-            <Button Content="Retour" Click="Retour_Click" Style="{StaticResource MenuButtonStyle}" />
-            <!-- Ajoutez d'autres éléments du menu si nécessaire -->
         </StackPanel>
 
         <!-- Colonne de droite pour le contenu -->

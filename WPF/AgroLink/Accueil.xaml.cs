@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using WpfNegosud.Services;
 
@@ -67,7 +68,7 @@ namespace AgroLink
         }
 
         /// <summary>
-        /// Vérifie si une combinaison de touches est respéctée
+        /// Vérifie si une combinaison de touches est respéctée pour afficher la partie admin
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -79,7 +80,14 @@ namespace AgroLink
                 e.Key == Key.A)
             {
                 // La combinaison Ctrl + Shift + A a été pressée
-                ChargerPage(new Uri("Admin.xaml", UriKind.Relative));
+                Popup popup = new Popup();
+                DemandeMotDePasse demandeMotDePasse = new DemandeMotDePasse();
+
+                // Afficher la fenêtre de demande de mot de passe en tant que boîte de dialogue modale
+                if (demandeMotDePasse.ShowDialog() == true)
+                {
+                    ChargerPage(new Uri("Admin.xaml", UriKind.Relative));
+                }
             }
         }
         /// <summary>

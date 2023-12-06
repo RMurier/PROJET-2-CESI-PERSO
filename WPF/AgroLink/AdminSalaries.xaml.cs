@@ -26,11 +26,24 @@ namespace AgroLink
     public partial class AdminSalaries : Page
     {
         public SalariesService _salaries { get; set; }
+        public SitesService _sites { get; set; }
+        public ServicesService _service { get; set; }
+        public RolesService _role { get; set; }
         public List<TSalarie> ListSalaries { get; set; }
+        public List<TSite> ListeSites { get; set; }
+        public List<TService> ListeServices { get; set; }
+        public List<TRole> ListeRoles { get; set; }
         public AdminSalaries()
         {
             InitializeComponent();
             _salaries = new SalariesService();
+            _sites = new SitesService();
+            _service = new ServicesService();
+            _role = new RolesService();
+            DataContext = this;
+            ListeSites = _sites.GetSites().Result;
+            ListeServices = _service.GetServices().Result;
+            ListeRoles = _role.GetRoles().Result;
 
             ListSalaries = _salaries.GetSalaries().Result;
             SalariesGrid.ItemsSource = ListSalaries;
@@ -63,6 +76,7 @@ namespace AgroLink
                     Task<List<TSalarie>> listSalaries = _salaries.GetSalaries();
                     SalariesGrid.ItemsSource = await listSalaries;
                     SalariesGrid.Items.Refresh();
+                    MessageBox.Show("Utilisateur modifié");
                 }
                 else
                 {
@@ -71,6 +85,7 @@ namespace AgroLink
                     Task<List<TSalarie>> listSalaries = _salaries.GetSalaries();
                     SalariesGrid.ItemsSource = await listSalaries;
                     SalariesGrid.Items.Refresh();
+                    MessageBox.Show("Utilisateur ajouté");
                 }
             }
         }
@@ -86,6 +101,7 @@ namespace AgroLink
             Task<List<TSalarie>> listSalaries = _salaries.GetSalaries();
             SalariesGrid.ItemsSource = await listSalaries;
             SalariesGrid.Items.Refresh();
+            MessageBox.Show("Utilisateur Supprimé");
         }
     }
 }

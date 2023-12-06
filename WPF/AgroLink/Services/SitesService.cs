@@ -51,6 +51,29 @@ namespace WpfNegosud.Services
             }
         }
         /// <summary>
+        /// Récupère la liste des sites
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<TTypeSite>> GetTypesSite()
+        {
+            // Effectuez votre requête HTTP ici pour obtenir les données de l'API
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync($"{_config["ApiEndpoint"]}/Sites/GetAllTypesSite").Result;
+                    response.EnsureSuccessStatusCode();
+                    string data = response.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<List<TTypeSite>>(data);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la requête API : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return new List<TTypeSite>();
+                }
+            }
+        }
+        /// <summary>
         /// Ajoute un site en BDD
         /// </summary>
         /// <param name="salarie"></param>
