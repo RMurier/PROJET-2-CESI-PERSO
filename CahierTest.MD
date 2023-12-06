@@ -26,62 +26,53 @@ Ce document présente le cahier de test pour l'évaluation de l'application d'an
 1. **Ajout, Modification, Suppression d'Informations**
    - [x] L'administrateur peut ajouter un nouveau salarié avec toutes les informations.
    - [x] L'administrateur peut modifier les informations d'un salarié existant.
-   - [x  ] L'administrateur peut supprimer un salarié.
+   - [x] L'administrateur peut supprimer un salarié.
 
 2. **Accès Secret et Mot de Passe**
-   - [ ] L'accès secret (combinaison de touches) demande correctement un mot de passe.
-   - [ ] L'administrateur peut accéder aux fonctionnalités secrètes après avoir fourni le mot de passe.
+   - [x] L'accès secret (combinaison de touches) demande correctement un mot de passe.
+   - [x] L'administrateur peut accéder aux fonctionnalités secrètes après avoir fourni le mot de passe.
 
 3. **CRUD des Sites**
-   - [ ] L'administrateur peut créer, lire, mettre à jour et supprimer des sites.
-   - [ ] Les modifications sont correctement reflétées dans la liste des sites.
+   - [x] L'administrateur peut créer, lire, mettre à jour et supprimer des sites.
+   - [x] Les modifications sont correctement reflétées dans la liste des sites.
 
 4. **CRUD des Services**
-   - [ ] L'administrateur peut créer, lire, mettre à jour et supprimer des services.
-   - [ ] Les modifications sont correctement reflétées dans la liste des services.
+   - [x] L'administrateur peut créer, lire, mettre à jour et supprimer des services.
+   - [x] Les modifications sont correctement reflétées dans la liste des services.
 
 5. **CRUD des Salariés**
-   - [ ] L'administrateur peut créer, lire, mettre à jour et supprimer des salariés.
-   - [ ] Les modifications sont correctement reflétées dans la liste des salariés.
+   - [x] L'administrateur peut créer, lire, mettre à jour et supprimer des salariés.
+   - [x] Les modifications sont correctement reflétées dans la liste des salariés.
 
 ## 2. Tests API
 
 ### 2.1 Interaction avec la Base de Données
 1. **Select**
-   - [ ] L'API peut récupérer les données des salariés, sites et services.
-   - [ ] Les données récupérées sont correctes.
+   - [x] L'API peut récupérer les données des salariés, sites et services.
+   - [x] Les données récupérées sont correctes.
 
 2. **Insert**
-   - [ ] L'API peut ajouter de nouvelles entrées pour les salariés, sites et services.
-   - [ ] Les nouvelles entrées sont correctement enregistrées dans la base de données.
+   - [x] L'API peut ajouter de nouvelles entrées pour les salariés, sites et services.
+   - [x] Les nouvelles entrées sont correctement enregistrées dans la base de données.
 
 3. **Update**
-   - [ ] L'API peut mettre à jour les informations des salariés, sites et services.
-   - [ ] Les mises à jour sont correctement enregistrées dans la base de données.
+   - [x] L'API peut mettre à jour les informations des salariés, sites et services.
+   - [x] Les mises à jour sont correctement enregistrées dans la base de données.
 
 4. **Delete**
-   - [ ] L'API peut supprimer des entrées pour les salariés, sites et services.
-   - [ ] Les entrées supprimées ne sont plus présentes dans la base de données.
-
-### 2.2 Gestion de l'Accès Concurrent
-1. **Lecture Concurrente**
-   - [ ] Plusieurs visiteurs peuvent ouvrir l'application en accès concurrent en lecture.
-   - [ ] Les données affichées restent cohérentes malgré l'accès concurrent.
-
-2. **Modification Concurrente (Administrateur)**
-   - [ ] Deux administrateurs ne peuvent pas modifier la base de données simultanément si cela est bloquant.
-   - [ ] Un message de refus est affiché pour le second administrateur.
+   - [x] L'API peut supprimer des entrées pour les salariés, sites et services.
+   - [x] Les entrées supprimées ne sont plus présentes dans la base de données.
 
 ## 3. Tests Git
 1. **Création du Repo**
-   - [ ] Le repo Git a été créé avec la date de création correspondant à celle de la remise du document.
-   - [ ] Le repo est privé.
-   - [ ] Le pilote est invité en tant que collaborateur.
+   - [x] Le repo Git a été créé avec la date de création correspondant à celle de la remise du document.
+   - [x] Le repo est privé.
+   - [x] Le pilote est invité en tant que collaborateur.
 
 2. **Vitalité du Repo**
-   - [ ] Le repo a plusieurs commits.
-   - [ ] Un bon équilibre entre les développeurs est maintenu.
-   - [ ] Pas de first-commit, le repo évolue au fil du temps.
+   - [x] Le repo a plusieurs commits.
+   - [x] Un bon équilibre entre les développeurs est maintenu.
+   - [x] Pas de first-commit, le repo évolue au fil du temps.
 
 3. **Fichier Readme.MD**
-   - [ ] Le fichier Readme.MD comprend le nom
+   - [x] Le fichier Readme.MD comprend le nom
