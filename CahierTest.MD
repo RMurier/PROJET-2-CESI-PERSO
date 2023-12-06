@@ -24,9 +24,9 @@ Ce document présente le cahier de test pour l'évaluation de l'application d'an
 
 ### 1.2 Administration
 1. **Ajout, Modification, Suppression d'Informations**
-   - [ ] L'administrateur peut ajouter un nouveau salarié avec toutes les informations.
-   - [ ] L'administrateur peut modifier les informations d'un salarié existant.
-   - [ ] L'administrateur peut supprimer un salarié.
+   - [x] L'administrateur peut ajouter un nouveau salarié avec toutes les informations.
+   - [x] L'administrateur peut modifier les informations d'un salarié existant.
+   - [x  ] L'administrateur peut supprimer un salarié.
 
 2. **Accès Secret et Mot de Passe**
    - [ ] L'accès secret (combinaison de touches) demande correctement un mot de passe.

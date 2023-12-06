@@ -25,6 +25,9 @@
     <Compile Update="AdminSites.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DemandeMotDePasse.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserInformations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -49,6 +52,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminSites.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DemandeMotDePasse.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserInformations.xaml">
