@@ -68,7 +68,7 @@ namespace AgroLink
         }
 
         /// <summary>
-        /// Vérifie si une combinaison de touches est respéctée
+        /// Vérifie si une combinaison de touches est respéctée pour afficher la partie admin
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
