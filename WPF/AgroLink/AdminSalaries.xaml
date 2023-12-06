@@ -57,21 +57,28 @@
                     </DataGridTextColumn.EditingElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Service" Binding="{Binding Path=RefService, UpdateSourceTrigger=PropertyChanged}">
-                    <DataGridTextColumn.EditingElementStyle>
-                        <Style TargetType="TextBox">
-                            <Setter Property="MaxLength" Value="10"/>
-                        </Style>
-                    </DataGridTextColumn.EditingElementStyle>
-                </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Site" Binding="{Binding Path=RefSite, UpdateSourceTrigger=PropertyChanged}">
-                    <DataGridTextColumn.EditingElementStyle>
-                        <Style TargetType="TextBox">
-                            <Setter Property="MaxLength" Value="10"/>
-                        </Style>
-                    </DataGridTextColumn.EditingElementStyle>
-                </DataGridTextColumn>
+                <DataGridTemplateColumn Header="Service">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=DataContext.ListeServices, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                DisplayMemberPath="Nom"
+                                SelectedValuePath="Id"
+                                SelectedValue="{Binding RefService, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Site">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=DataContext.ListeSites, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                      DisplayMemberPath="Nom"
+                      SelectedValuePath="Id"
+                      SelectedValue="{Binding RefSite, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 
                 <DataGridTextColumn Header="Role" Binding="{Binding Path=RefRole, UpdateSourceTrigger=PropertyChanged}">
                     <DataGridTextColumn.EditingElementStyle>

@@ -17,7 +17,8 @@
                 <DataGridTextColumn Header="Téléphone Fixe" Binding="{Binding TelephoneFixe}" />
                 <DataGridTextColumn Header="Téléphone Mobile" Binding="{Binding TelephoneMobile}" />
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
-                <!-- Ajoutez d'autres colonnes en fonction de vos propriétés -->
+                <DataGridTextColumn Header="Service" Binding="{Binding Service}" />
+                <DataGridTextColumn Header="Site" Binding="{Binding Site}" />
                 <DataGridTemplateColumn Header="Action">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

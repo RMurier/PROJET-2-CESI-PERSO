@@ -7,7 +7,7 @@ Ce document présente le cahier de test pour l'évaluation de l'application d'an
 
 ### 1.1 Visiteur
 1. **Affichage des Informations**
-   - [ ] L'utilisateur visiteur peut afficher les informations d'un salarié.
+   - [x] L'utilisateur visiteur peut afficher les informations d'un salarié.
    - [ ] Les informations affichées comprennent le nom, prénom, téléphone fixe, téléphone portable, email, service et site.
 
 2. **Recherche par Nom**

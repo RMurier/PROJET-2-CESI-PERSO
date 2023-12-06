@@ -17,7 +17,18 @@
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Header="Id" Binding="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTextColumn Header="Nom"  Binding="{Binding Path= Nom, UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGridTextColumn Header="Type" Binding="{Binding Path=RefType, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTemplateColumn Header="Type">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=DataContext.ListeTypes, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                              DisplayMemberPath="Nom"
+                              SelectedValuePath="Id"
+                              SelectedValue="{Binding Path=RefType, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--<DataGridTextColumn Header="Type" Binding="{Binding Path=RefType, UpdateSourceTrigger=PropertyChanged}"/>-->
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

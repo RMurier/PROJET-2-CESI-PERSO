@@ -57,18 +57,17 @@ namespace AgroLink
 
                     //Si en édition 
                     await _services.UpdateService(nouveauService);
-                    Task<List<TService>> listServices = _services.GetServices();
-                    ServicesGrid.ItemsSource = await listServices;
-                    ServicesGrid.Items.Refresh();
+                    MessageBox.Show("Service modifié");
                 }
                 else
                 {
                     //Si en création
                     await _services.AddService(nouveauService);
-                    Task<List<TService>> listServices = _services.GetServices();
-                    ServicesGrid.ItemsSource = await listServices;
-                    ServicesGrid.Items.Refresh();
+                    MessageBox.Show("Service ajouté");
                 }
+                Task<List<TService>> listServices = _services.GetServices();
+                ServicesGrid.ItemsSource = await listServices;
+                ServicesGrid.Items.Refresh();
             }
         }
         /// <summary>
@@ -83,6 +82,7 @@ namespace AgroLink
             Task<List<TService>> listServices = _services.GetServices();
             ServicesGrid.ItemsSource = await listServices;
             ServicesGrid.Items.Refresh();
+            MessageBox.Show("Site supprimé");
         }
     }
 }

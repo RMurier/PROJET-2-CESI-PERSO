@@ -55,5 +55,14 @@ namespace AgroLink.Controllers
             _dbContext.TSites.Remove(site);
             _dbContext.SaveChanges();
         }
+        /// <summary>
+        /// Récupère la liste des sites
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetAllTypesSite")]
+        public List<TTypeSite> GetAllTypesSite()
+        {
+            return _dbContext.TTypeSites.ToList();
+        }
     }
 }

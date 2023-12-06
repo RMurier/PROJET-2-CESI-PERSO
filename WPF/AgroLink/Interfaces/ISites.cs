@@ -16,6 +16,11 @@ namespace AgroLink.Interfaces
         /// <returns></returns>
         public Task<List<TSite>> GetSites();
         /// <summary>
+        /// Récupère la liste des sites
+        /// </summary>
+        /// <returns></returns>
+        public Task<List<TTypeSite>> GetTypesSite();
+        /// <summary>
         /// Ajoute un site en BDD
         /// </summary>
         /// <param name="salarie"></param>
