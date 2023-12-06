@@ -7,7 +7,60 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Compile Update="404.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Accueil.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Admin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminSalaries.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminServices.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminSites.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DemandeMotDePasse.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserInformations.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserSearchList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="404.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Accueil.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminSalaries.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminServices.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminSites.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DemandeMotDePasse.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserInformations.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserSearchList.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

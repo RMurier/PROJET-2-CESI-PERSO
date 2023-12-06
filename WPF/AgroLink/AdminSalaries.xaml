@@ -1,0 +1,112 @@
+﻿<Page x:Class="AgroLink.AdminSalaries"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgroLink"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminSalaries">
+
+    <Grid>
+        <DataGrid x:Name="SalariesGrid" VerticalAlignment="Top"
+                  DataContext="{Binding ListeSalaries}"
+                  AutoGenerateColumns="False" CanUserResizeColumns="True"
+                  RowEditEnding="Salaries_AddItem"
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header="Id" Binding="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" />
+
+                <DataGridTextColumn Header="Nom"  Binding="{Binding Path= Nom, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="MaxLength" Value="256"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Prénom" Binding="{Binding Path=Prenom, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="MaxLength" Value="256"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Téléphone Fixe" Binding="{Binding Path=TelephoneFixe, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="MaxLength" Value="11"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Téléphone Portable" Binding="{Binding Path=TelephoneMobile, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="MaxLength" Value="11"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Email" Binding="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="MaxLength" Value="512"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTemplateColumn Header="Service">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=DataContext.ListeServices, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                DisplayMemberPath="Nom"
+                                SelectedValuePath="Id"
+                                SelectedValue="{Binding RefService, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Site">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=DataContext.ListeSites, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                      DisplayMemberPath="Nom"
+                      SelectedValuePath="Id"
+                      SelectedValue="{Binding RefSite, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Role">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=DataContext.ListeRoles, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                      DisplayMemberPath="Nom"
+                      SelectedValuePath="Id"
+                      SelectedValue="{Binding RefRole, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnDelete" 
+                                Grid.Column="1"
+                                Grid.Row="3"
+                                Content="Supprimer"
+                                Click="DeleteSalarie"
+                                Grid.ColumnSpan="2" Margin="5,5,5,5" 
+                                Tag="{Binding Id}"
+                                                
+                                />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

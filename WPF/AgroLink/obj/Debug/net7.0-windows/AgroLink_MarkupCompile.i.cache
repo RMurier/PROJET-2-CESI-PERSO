@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\murie\source\repos\PROJET-2 CESI\Perso\WPF\AgroLink\App.xaml
-11407045341
+91713043313
 
-51241733339
-1981827736222
-MainWindow.xaml;
+27-785141906
+2071261260268
+404.xaml;Accueil.xaml;Admin.xaml;AdminSalaries.xaml;AdminServices.xaml;AdminSites.xaml;DemandeMotDePasse.xaml;UserInformations.xaml;UserSearchList.xaml;
 
-False
+True
 
