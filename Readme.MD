@@ -26,9 +26,6 @@ Notre application d'annuaire entreprise est conçue pour simplifier la gestion d
 2. **Vue Complète :** La fiche salarié affiche toutes les informations importantes, telles que le nom, le prénom, les numéros de téléphone, l'e-mail, le service et le site.
 
 3. **Gestion des Contacts :** Les administrateurs ont le pouvoir d'ajouter, modifier et supprimer des informations, facilitant la mise à jour de la base de données.
-
-4. **Accès Sécurisé :** Les administrateurs peuvent accéder à des fonctionnalités spéciales via une combinaison de touches sécurisée, garantissant une gestion des données protégée.
-
 ---
 
 ## Utilisation Simple :
@@ -42,5 +39,3 @@ Que vous cherchiez à consulter une fiche salarié ou à mettre à jour des info
 Explorez notre application pour découvrir une nouvelle façon de gérer les contacts au sein de notre entreprise en pleine croissance !
 
 ---
-
-*Note : Cette description est conçue pour un utilisateur lambda et cherche à présenter les caractéristiques principales de manière accessible.*
