@@ -22,12 +22,12 @@ namespace AgroLink
     /// </summary>
     public partial class UserInformations : Page
     {
-        public TSalarie Salarie { get; set; }
+        public TSalarieWithAllInfos Salarie { get; set; }
         public string Site { get; set; }
         public string Service { get; set; }
         private readonly ServicesService _services;
         private readonly SitesService _sites;
-        public UserInformations(TSalarie salarie)
+        public UserInformations(TSalarieWithAllInfos salarie)
         {
             _sites = new SitesService();
             _services = new ServicesService();
