@@ -26,11 +26,13 @@ namespace AgroLink
     public partial class AdminServices : Page
     {
         public ServicesService _services { get; set; }
+        public SalariesService _salaries { get; set; }
         public List<TService> ListServices { get; set; }
         public AdminServices()
         {
             InitializeComponent();
             _services = new ServicesService();
+            _salaries = new SalariesService();
 
             ListServices = _services.GetServices().Result;
             ServicesGrid.ItemsSource = ListServices;
@@ -47,9 +49,10 @@ namespace AgroLink
             {
                 if
                 (
-                    nouveauService.Nom == null
+                    string.IsNullOrEmpty(nouveauService.Nom)
                 )
                 {
+                    MessageBox.Show("Merci de remplir toutes les informations avant d'ajouter/modifier un service.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 if (e.EditAction == DataGridEditAction.Commit && !e.Row.IsNewItem)
@@ -78,6 +81,12 @@ namespace AgroLink
         private async void DeleteService(object sender, RoutedEventArgs e)
         {
             int Id = (int)((Button)sender).Tag;
+            List<TSalarie> salaries = _salaries.GetSalaries().Result;
+            if(salaries.Where(x => x.RefService == Id).Any())
+            {
+                MessageBox.Show("Merci de changer le service de tous les utilisateurs liées à ce service avant de le supprimer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             await _services.DeleteService(Id);
             Task<List<TService>> listServices = _services.GetServices();
             ServicesGrid.ItemsSource = await listServices;
