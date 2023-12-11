@@ -24,6 +24,7 @@ namespace AgroLink
         public SitesService _sites { get; set; }
         public ServicesService _services { get; set; }
         public SalariesService _salaries { get; set; }
+        public RolesService _roles { get; set; }
         public List<TSite> ListeSites { get; set; }
         public List<TService> ListeServices { get; set; }
         public IConfiguration Configuration { get; set; }
@@ -35,6 +36,7 @@ namespace AgroLink
             _sites = new SitesService();
             _services = new ServicesService();
             _salaries = new SalariesService();
+            _roles = new RolesService();
 
             ListeSites = new List<TSite>();
             ListeServices = new List<TService>();
@@ -154,7 +156,22 @@ namespace AgroLink
                     ChargerPage(new Uri("404.xaml", UriKind.Relative));
                     break;
                 case 1:
-                    MainFrame.Navigate(new UserInformations(salaries.First()));
+                    TSalarieWithAllInfos salarieToGet = new TSalarieWithAllInfos();
+                    TSalarie salarie = salaries.First();
+                    salarieToGet.Id = salarie.Id;
+                    salarieToGet.Nom = salarie.Nom;
+                    salarieToGet.Prenom = salarie.Prenom;
+                    salarieToGet.TelephoneFixe = salarie.TelephoneFixe;
+                    salarieToGet.TelephoneMobile = salarie.TelephoneMobile;
+                    salarieToGet.Email = salarie.Email;
+                    salarieToGet.RefService = salarie.RefService;
+                    salarieToGet.Service = _services.GetServices().Result.Where(x => x.Id == salarie.RefService).First().Nom;
+                    salarieToGet.RefSite = salarie.RefSite;
+                    salarieToGet.Site = _sites.GetSites().Result.Where(x => x.Id == salarie.RefSite).First().Nom;
+                    salarieToGet.RefRole = salarie.RefRole;
+                    salarieToGet.Role = _roles.GetRoles().Result.Where(x => x.Id == salarie.RefRole).First().Nom;
+
+                    MainFrame.Navigate(new UserInformations(salarieToGet));
                     break;
                 case > 1:
                     MainFrame.Navigate(new UserSearchList(salaries));

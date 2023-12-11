@@ -68,7 +68,7 @@ namespace AgroLink
         {
             // Récupérez le salarié associé au bouton sélectionné
             Button button = (Button)sender;
-            TSalarie selectedSalarie = (TSalarie)button.Tag;
+            TSalarieWithAllInfos selectedSalarie = (TSalarieWithAllInfos)button.Tag;
 
             // Faites quelque chose avec le salarié sélectionné, par exemple, affichez un message
             NavigationService.Navigate(new UserInformations(selectedSalarie));

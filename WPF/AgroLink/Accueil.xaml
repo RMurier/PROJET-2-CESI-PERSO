@@ -2,7 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Mon Application" Height="900" Width="900"
+        ResizeMode="NoResize"
         PreviewKeyDown="Accueil_PreviewKeyDown">
+    
 
     <Grid Margin="0,0,0,-6">
         <Grid Background="#3498db" Margin="0,0,0,809">
